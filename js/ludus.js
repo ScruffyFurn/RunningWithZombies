@@ -637,7 +637,8 @@ THE SOFTWARE.
             game_over = false;
 
             // init the sprite sheet tiles
-            if (!sprite_sheet) sprite_sheet = new jaws.SpriteSheet({ image: "tiles.png", frame_size: [TILESIZE, TILESIZE], orientation: 'right' });
+            //if (!sprite_sheet) sprite_sheet = new jaws.SpriteSheet({ image: "tiles.png", frame_size: [TILESIZE, TILESIZE], orientation: 'right' });
+            if (!sprite_sheet) sprite_sheet = new jaws.SpriteSheet({ image: "tileset_1.png", frame_size: [TILESIZE, TILESIZE], orientation: 'right' });
 
             initLevel(level[current_level_number]);
             if (gui_enabled) updateGUIsprites(TimeGUI, time_remaining); // change from 000 imediately
@@ -813,8 +814,10 @@ THE SOFTWARE.
                     player.attacking = true;
                 }
 
-                if (touchleft || jaws.pressed("left") || jaws.pressed("a")) { player.vx = -move_speed; player.flipped = 1; }
-                else if (touchright || jaws.pressed("right") || jaws.pressed("d")) { player.vx = +move_speed; player.flipped = 0; }
+                //if (touchleft || jaws.pressed("left") || jaws.pressed("a")) { player.vx = -move_speed; player.flipped = 1; }
+                //else if (touchright || jaws.pressed("right") || jaws.pressed("d")) { player.vx = +move_speed; player.flipped = 0; }
+
+                player.vx = +move_speed; player.flipped = 0;
 
                 if (!player.attacking && (touchjump || jaws.pressed("up") || jaws.pressed("w") || jaws.pressed("space"))) { if (!player.jumping && player.can_jump) { sfxjump(); player.vy = jump_strength; player.jumping = true; player.can_jump = false; } }
                 else { player.can_jump = true; }
