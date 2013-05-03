@@ -106,7 +106,7 @@ THE SOFTWARE.
     var player_framesize = [128, 135]; // pixel dimensions of the player sprite
     var saved_position = [startx, starty]; // respawn point on death
     var enemies; // a sprite list filled with enemies
-    var enemy_framesize = [40, 40]; // pixel dimensions of the enemy sprite (if any)
+    var enemy_framesize = [80, 135]; // pixel dimensions of the enemy sprite (if any)
     var enemy_destroy_points = 100; // score for destroying an enemy
     var num_enemies = 0; // depends on the enemies layer in the level data
     var sprite_sheet; // the level tile map's data sprite sheet image
@@ -1184,7 +1184,7 @@ THE SOFTWARE.
         // only animate if it is visible
         if (viewport.isPartlyInside(nme)) { 
             nme.x -= enemy_speed;
-            nme.y += Math.sin(currentFrameTimestamp * 0.002);
+            //nme.y += Math.sin(currentFrameTimestamp * 0.002);
             nme.setImage(nme.move_anim.next());
 
             if (!player.attacking) {
@@ -1729,9 +1729,9 @@ THE SOFTWARE.
 
                     num_enemies++;
 
-                    var anenemy = new jaws.Sprite({ x: i * TILESIZE, y: i2 * TILESIZE, anchor: "center_center", flipped: true });
+                    var anenemy = new jaws.Sprite({ x: i * TILESIZE, y: i2 * TILESIZE, anchor: "center_center", flipped: false });
                     anenemy.animation = new jaws.Animation({ sprite_sheet: jaws.assets.get("enemies.png"), frame_size: enemy_framesize, frame_duration: 150, bounce: true });
-                    anenemy.move_anim = anenemy.animation.slice(0, 7);
+                    anenemy.move_anim = anenemy.animation.slice(1, 3);
                     anenemy.setImage(anenemy.animation.frames[0]);
                     anenemy.action = dangerActionFunction;
                     anenemy.hitaction = enemyDestroyFunction;
