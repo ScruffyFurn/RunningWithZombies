@@ -103,7 +103,7 @@ THE SOFTWARE.
 
     // sprites aplenty
     var player; // the game player animated sprite
-    var player_framesize = [128, 96]; // pixel dimensions of the player sprite
+    var player_framesize = [128, 135]; // pixel dimensions of the player sprite
     var saved_position = [startx, starty]; // respawn point on death
     var enemies; // a sprite list filled with enemies
     var enemy_framesize = [40, 40]; // pixel dimensions of the enemy sprite (if any)
@@ -637,8 +637,8 @@ THE SOFTWARE.
             game_over = false;
 
             // init the sprite sheet tiles
-            //if (!sprite_sheet) sprite_sheet = new jaws.SpriteSheet({ image: "tiles.png", frame_size: [TILESIZE, TILESIZE], orientation: 'right' });
-            if (!sprite_sheet) sprite_sheet = new jaws.SpriteSheet({ image: "tileset_1.png", frame_size: [TILESIZE, TILESIZE], orientation: 'right' });
+            if (!sprite_sheet) sprite_sheet = new jaws.SpriteSheet({ image: "tiles.png", frame_size: [TILESIZE, TILESIZE], orientation: 'right' });
+            //if (!sprite_sheet) sprite_sheet = new jaws.SpriteSheet({ image: "tileset_1.png", frame_size: [TILESIZE, TILESIZE], orientation: 'right' });
 
             initLevel(level[current_level_number]);
             if (gui_enabled) updateGUIsprites(TimeGUI, time_remaining); // change from 000 imediately
@@ -659,20 +659,20 @@ THE SOFTWARE.
 
                 // the animations used by our hero
                 player.animation = new jaws.Animation({ sprite_sheet: jaws.assets.get("player.png"), frame_size: player_framesize, frame_duration: 75 });
-                player.idle_anim = player.animation.slice(8, 9);
-                player.move_anim = player.animation.slice(0, 7);
+                player.idle_anim = player.animation.slice(3,4);
+                player.move_anim = player.animation.slice(3);
                 //player.jump_anim = player.animation.slice(2, 3);
-                player.jump_anim = player.animation.slice(14, 15);
-                player.fall_anim = player.animation.slice(15, 16);
-                player.attack_anim = player.animation.slice(9, 14);
-                player.setImage(player.animation.frames[9]);
+                player.jump_anim = player.animation.slice(1,2);
+                player.fall_anim = player.animation.slice(1,2);
+                player.attack_anim = player.animation.slice(5);
+                player.setImage(player.animation.frames[5]);
                 //NOP: player.top_offset++; // nudge one pixel down to account for physics "nudge"
 
                 // the collision bounding box is smaller than the DRAWING rect
                 // player.rect() is used for rendering but this is used for physics
                 player.collisionrect = function () {
                     if (!this.cached_collisionrect) {
-                        this.cached_collisionrect = new jaws.Rect(this.x, this.top, 32, 64);
+                        this.cached_collisionrect = new jaws.Rect(this.x, this.top, 32, 96);
                     }
                     this.cached_collisionrect.moveTo(this.x - this.left_offset + 48, this.y - this.top_offset + 32); // bottom has no effect
                     return this.cached_collisionrect;
