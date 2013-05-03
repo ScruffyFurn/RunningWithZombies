@@ -658,9 +658,9 @@ THE SOFTWARE.
                 player = new jaws.Sprite({ x: startx, y: starty, anchor: "center_bottom", flipped: true });
 
                 // the animations used by our hero
-                player.animation = new jaws.Animation({ sprite_sheet: jaws.assets.get("player.png"), frame_size: player_framesize, frame_duration: 75 });
+                player.animation = new jaws.Animation({ sprite_sheet: jaws.assets.get("player.png"), frame_size: player_framesize, frame_duration: 95 });
                 player.idle_anim = player.animation.slice(3,4);
-                player.move_anim = player.animation.slice(3);
+                player.move_anim = player.animation.slice(2,4);
                 //player.jump_anim = player.animation.slice(2, 3);
                 player.jump_anim = player.animation.slice(1,2);
                 player.fall_anim = player.animation.slice(1,2);
