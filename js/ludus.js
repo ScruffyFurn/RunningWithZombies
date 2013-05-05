@@ -658,7 +658,7 @@ THE SOFTWARE.
                 player = new jaws.Sprite({ x: startx, y: starty, anchor: "center_bottom", flipped: true });
 
                 // the animations used by our hero
-                player.animation = new jaws.Animation({ sprite_sheet: jaws.assets.get("player.png"), frame_size: player_framesize, frame_duration: 95 });
+                player.animation = new jaws.Animation({ sprite_sheet: jaws.assets.get("player.png"), frame_size: player_framesize, frame_duration: 150 });
                 player.idle_anim = player.animation.slice(3,4);
                 player.move_anim = player.animation.slice(2,4);
                 //player.jump_anim = player.animation.slice(2, 3);
@@ -782,7 +782,7 @@ THE SOFTWARE.
 
                 // animate the enemies
                 if (enemies) {
-                    enemies.forEach(enemyAI);
+                    enemies.forEach(enemyAI);         
                 }
 
                 if (player.jumping) {
@@ -1180,10 +1180,27 @@ THE SOFTWARE.
     * called every frame to move visible enemies
     */
     function enemyAI(nme) {
-                        
+         
         // only animate if it is visible
-        if (viewport.isPartlyInside(nme)) { 
-            nme.x -= enemy_speed;
+        if (viewport.isPartlyInside(nme)) {
+            
+            if (nme.movingRight){
+                nme.x -= enemy_speed;
+                nme.flipped = false;
+            }
+            else{
+                nme.x += enemy_speed;
+                nme.flipped = true;
+            }
+
+            if (nme.x <= nme.startingX - 256) {
+                nme.movingRight = false;
+            }
+            else if (nme.x >= nme.startingX) {
+                nme.movingRight = true;
+            }
+            
+
             //nme.y += Math.sin(currentFrameTimestamp * 0.002);
             nme.setImage(nme.move_anim.next());
 
@@ -1736,6 +1753,8 @@ THE SOFTWARE.
                     anenemy.action = dangerActionFunction;
                     anenemy.hitaction = enemyDestroyFunction;
                     anenemy.enemytype = nextspritenum; // see above
+                    anenemy.startingX = anenemy.x;
+                    anenemy.movingRight = true;
                     enemies.push(anenemy);
 
                 }
