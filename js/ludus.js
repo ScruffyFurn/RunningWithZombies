@@ -977,7 +977,7 @@ THE SOFTWARE.
 
         if (TimeGUI) TimeGUI.draw();
         if (ScoreGUI) ScoreGUI.draw();
-        if (CountGUI) CountGUI.draw();
+        //if (CountGUI) CountGUI.draw();
 
         // flashing info at level start and near time out!
         if ((pickups_remaining == pickups_total) || (pickups_remaining < 6) || (time_remaining < 11)) {
@@ -1955,9 +1955,9 @@ THE SOFTWARE.
     */
     function initMSTouchEvents() {
 
-        lbutt = document.getElementById('buttonleft');
+       // lbutt = document.getElementById('buttonleft');
         dbutt = document.getElementById('buttondown');
-        rbutt = document.getElementById('buttonright');
+        //rbutt = document.getElementById('buttonright');
         ubutt = document.getElementById('buttonup');
         pbutt = document.getElementById('buttonpause');
 
@@ -1966,49 +1966,49 @@ THE SOFTWARE.
 
             if (window.navigator.msMaxTouchPoints) { log('MS touches (x' + window.navigator.msMaxTouchPoints + ' points max) are available.'); }
 
-            if (lbutt) lbutt.addEventListener("MSPointerDown", touchButtonLeft, false);
-            if (rbutt) rbutt.addEventListener("MSPointerDown", touchButtonRight, false);
+         //   if (lbutt) lbutt.addEventListener("MSPointerDown", touchButtonLeft, false);
+         //   if (rbutt) rbutt.addEventListener("MSPointerDown", touchButtonRight, false);
             if (dbutt) dbutt.addEventListener("MSPointerDown", touchButtonDown, false);
             if (ubutt) ubutt.addEventListener("MSPointerDown", touchButtonUp, false);
             if (pbutt) pbutt.addEventListener("MSPointerDown", touchButtonPause, false);
 
             // MSPointerUp works great for mice and touches that don't leave the screen
-            if (lbutt) lbutt.addEventListener("MSPointerUp", untouchButtonLeft, false);
-            if (rbutt) rbutt.addEventListener("MSPointerUp", untouchButtonRight, false);
+         //   if (lbutt) lbutt.addEventListener("MSPointerUp", untouchButtonLeft, false);
+         //   if (rbutt) rbutt.addEventListener("MSPointerUp", untouchButtonRight, false);
             if (dbutt) dbutt.addEventListener("MSPointerUp", untouchButtonDown, false);
             if (ubutt) ubutt.addEventListener("MSPointerUp", untouchButtonUp, false);
             if (pbutt) pbutt.addEventListener("MSPointerUp", untouchButtonPause, false);
 
             // MSPointerOut is useful to avoid MSPointerUp not firing if you drag a finger offscreen
-            if (lbutt) lbutt.addEventListener("MSPointerOut", untouchButtonLeft, false);
-            if (rbutt) rbutt.addEventListener("MSPointerOut", untouchButtonRight, false);
+         //   if (lbutt) lbutt.addEventListener("MSPointerOut", untouchButtonLeft, false);
+         //   if (rbutt) rbutt.addEventListener("MSPointerOut", untouchButtonRight, false);
             if (dbutt) dbutt.addEventListener("MSPointerOut", untouchButtonDown, false);
             if (ubutt) ubutt.addEventListener("MSPointerOut", untouchButtonUp, false);
             if (pbutt) pbutt.addEventListener("MSPointerOut", untouchButtonPause, false);
         }
         else {
             // standard touch events for browser/ios/non IE
-            if (lbutt) lbutt.addEventListener("touchstart", touchButtonLeft, false);
-            if (rbutt) rbutt.addEventListener("touchstart", touchButtonRight, false);
+         //   if (lbutt) lbutt.addEventListener("touchstart", touchButtonLeft, false);
+         //   if (rbutt) rbutt.addEventListener("touchstart", touchButtonRight, false);
             if (dbutt) dbutt.addEventListener("touchstart", touchButtonDown, false);
             if (ubutt) ubutt.addEventListener("touchstart", touchButtonUp, false);
             if (pbutt) pbutt.addEventListener("touchstart", touchButtonPause, false);
 
-            if (lbutt) lbutt.addEventListener("touchend", untouchButtonLeft, false);
-            if (rbutt) rbutt.addEventListener("touchend", untouchButtonRight, false);
+          //  if (lbutt) lbutt.addEventListener("touchend", untouchButtonLeft, false);
+          //  if (rbutt) rbutt.addEventListener("touchend", untouchButtonRight, false);
             if (dbutt) dbutt.addEventListener("touchend", untouchButtonDown, false);
             if (ubutt) ubutt.addEventListener("touchend", untouchButtonUp, false);
             if (pbutt) pbutt.addEventListener("touchend", untouchButtonPause, false);
 
             // alow mouse events for debugging
-            if (lbutt) lbutt.addEventListener("mousedown", touchButtonLeft, false);
-            if (rbutt) rbutt.addEventListener("mousedown", touchButtonRight, false);
+           // if (lbutt) lbutt.addEventListener("mousedown", touchButtonLeft, false);
+          //  if (rbutt) rbutt.addEventListener("mousedown", touchButtonRight, false);
             if (dbutt) dbutt.addEventListener("mousedown", touchButtonDown, false);
             if (ubutt) ubutt.addEventListener("mousedown", touchButtonUp, false);
             if (pbutt) pbutt.addEventListener("mousedown", touchButtonPause, false);
 
-            if (lbutt) lbutt.addEventListener("mouseup", untouchButtonLeft, false);
-            if (rbutt) rbutt.addEventListener("mouseup", untouchButtonRight, false);
+           // if (lbutt) lbutt.addEventListener("mouseup", untouchButtonLeft, false);
+           // if (rbutt) rbutt.addEventListener("mouseup", untouchButtonRight, false);
             if (dbutt) dbutt.addEventListener("mouseup", untouchButtonDown, false);
             if (ubutt) ubutt.addEventListener("mouseup", untouchButtonUp, false);
             if (pbutt) pbutt.addEventListener("mouseup", untouchButtonPause, false);
