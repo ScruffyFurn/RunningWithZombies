@@ -1747,7 +1747,21 @@ THE SOFTWARE.
                     num_enemies++;
 
                     var anenemy = new jaws.Sprite({ x: i * TILESIZE, y: i2 * TILESIZE, anchor: "center_center", flipped: false });
-                    anenemy.animation = new jaws.Animation({ sprite_sheet: jaws.assets.get("enemies.png"), frame_size: enemy_framesize, frame_duration: 150, bounce: true });
+
+                    //Random pick our enemy sprite
+                    var rnd = Math.floor((Math.random() * 3) + 1);
+                    switch (rnd) {
+                        case 1:
+                            anenemy.animation = new jaws.Animation({ sprite_sheet: jaws.assets.get("enemiesMan.png"), frame_size: enemy_framesize, frame_duration: 150, bounce: true });
+                            break;
+                        case 2:
+                            anenemy.animation = new jaws.Animation({ sprite_sheet: jaws.assets.get("enemyBoy.png"), frame_size: enemy_framesize, frame_duration: 150, bounce: true });
+                            break;
+                        case 3:
+                            anenemy.animation = new jaws.Animation({ sprite_sheet: jaws.assets.get("enemyWoman.png"), frame_size: enemy_framesize, frame_duration: 150, bounce: true });
+                            break;
+                    }
+
                     anenemy.move_anim = anenemy.animation.slice(1, 3);
                     anenemy.setImage(anenemy.animation.frames[0]);
                     anenemy.action = dangerActionFunction;
@@ -1957,7 +1971,7 @@ THE SOFTWARE.
 
        // lbutt = document.getElementById('buttonleft');
         dbutt = document.getElementById('buttondown');
-        //rbutt = document.getElementById('buttonright');
+        //drbutt = document.getElementById('buttonright');
         ubutt = document.getElementById('buttonup');
         pbutt = document.getElementById('buttonpause');
 
@@ -2144,7 +2158,7 @@ THE SOFTWARE.
 
         // start downloading all the art using a preloader progress screen
         jaws.assets.root = "game-media/";
-        jaws.assets.add(["titlescreen.png", "gui.png", "font.png", "parallax.png", "player.png", "particles.png", "tiles.png", "msgbox.png", "enemies.png"]);
+        jaws.assets.add(["titlescreen.png", "gui.png", "font.png", "parallax.png", "player.png", "particles.png", "tiles.png", "msgbox.png", "enemies.png", "enemiesMan.png", "enemyBoy.png", "enemyWoman.png"]);
 
         // once the art has been loaded we will create an instance of this class
         // and begin by running its setup function, then the update/draw loop

@@ -55,6 +55,9 @@
     <AppxManifest Include="package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <Content Include="game-media\enemiesMan.png" />
+    <Content Include="game-media\enemyBoy.png" />
+    <Content Include="game-media\enemyWoman.png" />
     <Content Include="game-media\tileset_1.png" />
     <Content Include="index.html" />
     <Content Include="game-media\attack.mp3" />
