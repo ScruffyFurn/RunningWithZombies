@@ -8,7 +8,7 @@
   <property name="mapname" value="Crypto Graphic"/>
   <property name="move_speed" value="5"/>
   <property name="player_can_attack" value="true"/>
-  <property name="start_tile" value="5,10"/>
+  <property name="start_tile" value="0,15"/>
  </properties>
  <tileset firstgid="1" name="tiles" tilewidth="32" tileheight="32">
   <image source="tiles.png" width="1024" height="1024"/>
