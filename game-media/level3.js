@@ -87,7 +87,7 @@
      "mapname":"Crypto Graphic",
      "move_speed":"5",
      "player_can_attack":"true",
-     "start_tile":"5,10"
+     "start_tile":"0,15"
     },
  "tileheight":32,
  "tilesets":[
